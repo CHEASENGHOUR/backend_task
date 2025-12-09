@@ -57,7 +57,7 @@ class ProductController extends Controller
             $total_price = $request->price;
             if ($request->discount_type == 'percent') {
                 $total_price -= ($request->price * $request->discount_value / 100);
-            } elseif ($request->discount_type == 'fixed') {
+            } elseif ($request->discount_type == 'amount') {
                 $total_price -= $request->discount_value;
             }
 
