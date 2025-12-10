@@ -10,7 +10,6 @@ class CategoryController extends Controller
     //
     public function index()
     {
-        // Load categories with products
         $categories = Category::with(['products:id,category_id,name,image'])
             ->orderBy('sort_order')
             ->get();
@@ -24,7 +23,6 @@ class CategoryController extends Controller
                 'id' => $category->id,
                 'name' => $category->name,
                 'latest_order_no' => $latestOrderNo,
-                // Map all products for this category
                 'products' => $category->products->map(function ($product) {
                     return [
                         'id' => $product->id,
